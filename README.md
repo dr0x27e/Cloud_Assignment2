@@ -1,0 +1,4 @@
+# Assignment 2
+
+### Creators:
+SAMUEL KVALHEIM, THARALD SØRENSEN, HENRIK LAMBORG
