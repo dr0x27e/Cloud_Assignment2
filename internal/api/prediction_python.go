@@ -1,6 +1,7 @@
 package api
 
 import (
+	"Assignment2/internal/utils"
 	"mime/multipart"
 	"net/http"
 	"bytes"
@@ -52,7 +53,7 @@ func Prediction_Python(w http.ResponseWriter, r *http.Request) {
 	writer.Close()
 
 	// Send the request to the PYTHON API:
-	req, err := http.NewRequest("POST", "http://localhost:5000/predict", &buf)
+	req, err := http.NewRequest("POST", "http://10.212.170.29:5000/predict", &buf)
 	if err != nil {
 		http.Error(w, "Failed to create request: "+err.Error(), http.StatusInternalServerError)
 		return
@@ -78,6 +79,9 @@ func Prediction_Python(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, "Failed to read Python API response: "+err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	// Invoke webhooks:
+	utils.Invoke("PREDICT", "", "Image Predicted.")
 
 	// Forward the Python API's JSON response directly to the client
 	w.Header().Set("Content-Type", "application/json")

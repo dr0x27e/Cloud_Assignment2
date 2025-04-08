@@ -31,8 +31,9 @@ func Status(w http.ResponseWriter, r *http.Request) {
 	client := database.GetFirebaseClient()
 
 	countriesStatus := checkAPIStatus(constants.TEST_COUNTRY)
-	meteoStatus := checkAPIStatus(constants.TEST_OPENMETEO)
-	currencyStatus := checkAPIStatus(constants.TEST_CURRENCY)
+	meteoStatus     := checkAPIStatus(constants.TEST_OPENMETEO)
+	currencyStatus  := checkAPIStatus(constants.TEST_CURRENCY)
+	pythonStatus    := checkAPIStatus(constants.TEST_PYTHON_API)
 
 	// webhooks DataBase Status
 	webhooks := http.StatusOK
@@ -76,6 +77,7 @@ func Status(w http.ResponseWriter, r *http.Request) {
 		CountriesAPI:         countriesStatus,
 		MeteoAPI:             meteoStatus,
 		CurrencyAPI:          currencyStatus,
+		PythonAPI:            pythonStatus,
 		WebhooksDatabase:     webhooks,
 		RegistrationDatabase: Registration,
 		Webhooks:             webhookCount,

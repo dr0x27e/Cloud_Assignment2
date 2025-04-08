@@ -32,6 +32,11 @@ func WebhookReg(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Cant have Country for PREDICT Event:
+	if webhook.Event == "PREDICT" {
+		webhook.Country = ""
+	}
+
 	// Validating URL:
 	if webhook.Country != ""  {
 		// Fetching data to see if its a real country:

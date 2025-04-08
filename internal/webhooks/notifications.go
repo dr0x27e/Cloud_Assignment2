@@ -6,7 +6,6 @@ import (
 )
 
 func Notifications(w http.ResponseWriter, r *http.Request) {
-	
 	switch r.Method {
 	case http.MethodPost:
 		services.WebhookReg(w, r)

@@ -38,9 +38,6 @@ func main() {
 	router.HandleFunc("/dashboard/v1/status/", api.Status)
 	router.HandleFunc("/dashboard/v1/", api.Empty)
 
-	// Test endpoint to call Python API
-	// router.HandleFunc("/api/test", api.Python_stub)
-
 	// Python API Prediction endpoint:
 	router.HandleFunc("/api/predict/", api.Prediction_Python)
 

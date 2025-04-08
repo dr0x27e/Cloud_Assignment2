@@ -8,6 +8,7 @@ type StatusResponse struct {
 	CountriesAPI 	     int
 	MeteoAPI 			 int
 	CurrencyAPI 	     int
+	PythonAPI            int
 	WebhooksDatabase     int
 	RegistrationDatabase int
 	Webhooks             int
