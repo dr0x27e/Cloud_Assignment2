@@ -163,7 +163,7 @@ Returns current status of API - used in /status/ endpoint in go service
 
 ```json
 {
-    predictions":[
+    predictions": [
     {
         "grid":[3,3],
         "probability":0.739352285861969,
